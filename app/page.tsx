@@ -32,7 +32,7 @@ export default function Home() {
           <span>BugLeaf <b>Software</b></span>
         </a>
         <div className="links">
-          <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#contact">Contact</a>
+          <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="/developers">Developers</a><a href="#process">Process</a><a href="#contact">Contact</a>
         </div>
         <div className="nav-actions">
           <button className="theme-toggle" onClick={() => setDark(!dark)} aria-label="Toggle theme">
@@ -71,6 +71,7 @@ export default function Home() {
           <div><b>✓</b><h3>Reliable Support</h3><p>Ongoing support and maintenance after launch.</p></div>
         </div>
       </section>
+        
 
       <section className="section" id="services">
         <div className="heading"><label>OUR SERVICES</label><h2>What We Do</h2><p>Everything you need to turn an idea into a polished digital product.</p></div>
@@ -86,6 +87,7 @@ export default function Home() {
         </div>
         <div className="center"><a className="btn ghost" href="#contact">View All Projects →</a></div>
       </section>
+      
 
       <section className="process card" id="process">
         <div className="heading"><label>OUR PROCESS</label><h2>How We Work</h2></div>
@@ -99,6 +101,31 @@ export default function Home() {
           ].map(([n, t, d]) => <div className="step" key={n}><b>{n}</b><div className="step-icon">✦</div><h3>{t}</h3><p>{d}</p></div>)}
         </div>
       </section>
+      
+      <section className="section developers" id="developers">
+        <div className="heading">
+          <label><h2>OUR TEAM</h2></label>
+          
+          <p>Meet the people who build our products.</p>
+        </div>
+
+        <div className="dev-grid">
+          {[
+            { name: 'Arnab', role: 'UI/UX Developer', bio: 'Designing interfaces and delightful user experiences.' },
+            { name: 'Nothing', role: 'Web Developer', bio: 'Front-end engineering and component-driven UIs.' },
+            { name: 'Sudipto', role: 'Mobile App Developer', bio: 'iOS and Android applications and integrations.' }
+          ].map((d) => (
+            <article className="dev-card" key={d.name}>
+              <div className="avatar" aria-hidden>{d.name.split(' ').map((p) => p[0]).slice(0,2).join('')}</div>
+              <div className="dev-info">
+                <h3>{d.name}</h3>
+                <small className="muted">{d.role}</small>
+                <p>{d.bio}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="contact" id="contact">
         <img src="images/bugleaf-logo.svg" alt="" />
@@ -106,11 +133,13 @@ export default function Home() {
         <a className="btn primary" href="mailto:hello@bugleaf.com">Contact Us →</a>
       </section>
 
+   
+
       <footer>
         <div className="footer-brand"><img src="images/bugleaf-logo.svg" alt="" /><div><strong>BugLeaf Software</strong><p>Building innovative software solutions.</p></div></div>
         <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#projects">Projects</a></div>
         <div><h4>Services</h4><a href="#services">Web Development</a><a href="#services">Mobile Development</a><a href="#services">UI/UX Design</a><a href="#services">Cloud Solutions</a></div>
-        <div><h4>Contact</h4><a href="mailto:hello@bugleaf.com">hello@bugleaf.com</a><span>+880 1234 567890</span><span>Dhaka, Bangladesh</span></div>
+        <div><h4>Contact</h4><a href="mailto:hello@bugleaf.com">hello@bugleaf.com</a><span>+880 1869 298045</span><span>Chittagong, Bangladesh</span></div>
       </footer>
       <div className="copyright"> © 2026 BugLeaf Software. All rights reserved.</div>
     </main>
