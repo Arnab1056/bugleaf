@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useEffect, useState } from "react";
 
@@ -11,10 +11,10 @@ const services = [
 ];
 
 const projects = [
-  ["EduLearn", "E-learning Platform", "/images/edulearn.svg"],
-  ["TaskFlow", "Project Management App", "/images/taskflow.svg"],
-  ["MediTrack", "Healthcare Management", "/images/meditrack.svg"],
-  ["ShopEase", "E-commerce Platform", "/images/shopease.svg"]
+  ["EduLearn", "E-learning Platform", "images/edulearn.svg"],
+  ["TaskFlow", "Project Management App", "images/taskflow.svg"],
+  ["MediTrack", "Healthcare Management", "images/meditrack.svg"],
+  ["ShopEase", "E-commerce Platform", "images/shopease.svg"]
 ];
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a href="#home" className="brand">
-          <img src="images/bugleaf-logo.png" alt="BugLeaf Software" />
+          <img src="images/bugleaf-logo.svg" alt="BugLeaf Software" />
           <span>BugLeaf <b>Software</b></span>
         </a>
         <div className="links">
@@ -63,7 +63,7 @@ export default function Home() {
       </section>
 
       <section className="about card" id="about">
-        <div className="about-logo"><img src="images/bugleaf-logo.png" alt="" /></div>
+        <div className="about-logo"><img src="images/bugleaf-logo.svg" alt="" /></div>
         <div className="about-main"><label>WHO WE ARE</label><h2>We turn ideas into <span>powerful digital products.</span></h2><p>At BugLeaf Software, we combine creativity, technology and strategy to deliver solutions that drive real business results. Our goal is simple — build products that people love.</p><a href="#contact">Learn More About Us →</a></div>
         <div className="about-points">
           <div><b>✦</b><h3>Modern Solutions</h3><p>Clean, scalable and high-performance applications.</p></div>
@@ -75,14 +75,14 @@ export default function Home() {
       <section className="section" id="services">
         <div className="heading"><label>OUR SERVICES</label><h2>What We Do</h2><p>Everything you need to turn an idea into a polished digital product.</p></div>
         <div className="service-grid">
-          {services.map(([n,t,d]) => <article className="service" key={n}><small>{n}</small><div className="icon">✦</div><h3>{t}</h3><p>{d}</p><span>→</span></article>)}
+          {services.map(([n, t, d]) => <article className="service" key={n}><small>{n}</small><div className="icon">✦</div><h3>{t}</h3><p>{d}</p><span>→</span></article>)}
         </div>
       </section>
 
       <section className="section projects" id="projects">
         <div className="heading"><label>FEATURED PROJECTS</label><h2>Some Of Our Work</h2></div>
         <div className="project-grid">
-          {projects.map(([title,desc,img]) => <article className="project" key={title}><img src={img} alt={title} /><div><h3>{title}</h3><p>{desc}</p><span>↗</span></div></article>)}
+          {projects.map(([title, desc, img]) => <article className="project" key={title}><img src={img} alt={title} /><div><h3>{title}</h3><p>{desc}</p><span>↗</span></div></article>)}
         </div>
         <div className="center"><a className="btn ghost" href="#contact">View All Projects →</a></div>
       </section>
@@ -91,28 +91,28 @@ export default function Home() {
         <div className="heading"><label>OUR PROCESS</label><h2>How We Work</h2></div>
         <div className="steps">
           {[
-            ["01","Discover","We understand your idea, goals and requirements."],
-            ["02","Plan","We analyze and create a strategy and roadmap."],
-            ["03","Design","We design wireframes and beautiful user interfaces."],
-            ["04","Develop","We build your product with clean and efficient code."],
-            ["05","Deliver","We test, deploy and provide ongoing support."]
-          ].map(([n,t,d]) => <div className="step" key={n}><b>{n}</b><div className="step-icon">✦</div><h3>{t}</h3><p>{d}</p></div>)}
+            ["01", "Discover", "We understand your idea, goals and requirements."],
+            ["02", "Plan", "We analyze and create a strategy and roadmap."],
+            ["03", "Design", "We design wireframes and beautiful user interfaces."],
+            ["04", "Develop", "We build your product with clean and efficient code."],
+            ["05", "Deliver", "We test, deploy and provide ongoing support."]
+          ].map(([n, t, d]) => <div className="step" key={n}><b>{n}</b><div className="step-icon">✦</div><h3>{t}</h3><p>{d}</p></div>)}
         </div>
       </section>
 
       <section className="contact" id="contact">
-        <img src="images/bugleaf-logo.png" alt="" />
+        <img src="images/bugleaf-logo.svg" alt="" />
         <div><label>READY TO START?</label><h2>Let&apos;s build something <span>amazing.</span></h2><p>Have an idea? We&apos;re just a message away.</p></div>
         <a className="btn primary" href="mailto:hello@bugleaf.com">Contact Us →</a>
       </section>
 
       <footer>
-        <div className="footer-brand"><img src="images/bugleaf-logo.png" alt="" /><div><strong>BugLeaf Software</strong><p>Building innovative software solutions.</p></div></div>
+        <div className="footer-brand"><img src="images/bugleaf-logo.svg" alt="" /><div><strong>BugLeaf Software</strong><p>Building innovative software solutions.</p></div></div>
         <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#projects">Projects</a></div>
         <div><h4>Services</h4><a href="#services">Web Development</a><a href="#services">Mobile Development</a><a href="#services">UI/UX Design</a><a href="#services">Cloud Solutions</a></div>
         <div><h4>Contact</h4><a href="mailto:hello@bugleaf.com">hello@bugleaf.com</a><span>+880 1234 567890</span><span>Dhaka, Bangladesh</span></div>
       </footer>
-      <div className="copyright">© 2026 BugLeaf Software. All rights reserved.</div>
+      <div className="copyright"> © 2026 BugLeaf Software. All rights reserved.</div>
     </main>
   );
 }
