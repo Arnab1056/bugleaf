@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 330">
+<rect width="540" height="330" rx="25" fill="#0f1711"/>
+<rect x="25" y="25" width="490" height="280" rx="18" fill="#fafcf9"/>
+<circle cx="55" cy="55" r="6" fill="#8cc900"/><circle cx="75" cy="55" r="6" fill="#ccd5c8"/><circle cx="95" cy="55" r="6" fill="#ccd5c8"/>
+<text x="65" y="85" font-family="Arial" font-size="18" font-weight="700" fill="#172117">ShopEase</text>
+<rect x="65" y="105" width="405" height="170" rx="16" fill="#eef3ec"/><rect x="90" y="135" width="90" height="110" rx="12" fill="#d5e7c7"/><rect x="205" y="135" width="90" height="110" rx="12" fill="#8cc900"/><rect x="320" y="135" width="120" height="25" rx="12" fill="#23331f"/><rect x="320" y="180" width="90" height="14" rx="7" fill="#8c9989"/>
+</svg>

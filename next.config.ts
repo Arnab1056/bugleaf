@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+type NextConfig = {
+  output?: "export";
+  trailingSlash?: boolean;
+};
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+  trailingSlash: true,
 };
 
 export default nextConfig;

@@ -1,69 +1,118 @@
-import Image from "next/image";
+ "use client";
+
+import { useEffect, useState } from "react";
+
+const services = [
+  ["01", "Web Development", "Fast, responsive websites and web applications built for real business goals."],
+  ["02", "Mobile Development", "Cross-platform Android and iOS apps with polished user experiences."],
+  ["03", "UI / UX Design", "Clean, user-centered interfaces that make products easier to understand and use."],
+  ["04", "Cloud Solutions", "Scalable infrastructure, APIs and deployment for modern digital products."],
+  ["05", "Maintenance", "Reliable updates, fixes, monitoring and support after launch."]
+];
+
+const projects = [
+  ["EduLearn", "E-learning Platform", "/images/edulearn.svg"],
+  ["TaskFlow", "Project Management App", "/images/taskflow.svg"],
+  ["MediTrack", "Healthcare Management", "/images/meditrack.svg"],
+  ["ShopEase", "E-commerce Platform", "/images/shopease.svg"]
+];
 
 export default function Home() {
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+  }, [dark]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <nav className="nav">
+        <a href="#home" className="brand">
+          <img src="/images/bugleaf-logo.png" alt="BugLeaf Software" />
+          <span>BugLeaf <b>Software</b></span>
+        </a>
+        <div className="links">
+          <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#contact">Contact</a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="nav-actions">
+          <button className="theme-toggle" onClick={() => setDark(!dark)} aria-label="Toggle theme">
+            {dark ? "☀" : "☾"}
+          </button>
+          <a className="small-cta" href="#contact">Let&apos;s Talk ↗</a>
         </div>
-      </main>
-    </div>
+      </nav>
+
+      <section className="hero" id="home">
+        <div className="hero-copy">
+          <div className="pill"><i /> WE BUILD DIGITAL SOLUTIONS</div>
+          <h1>Innovative Software<br />Solutions for a<br /><span>Smarter</span> Tomorrow</h1>
+          <p>BugLeaf Software creates powerful, scalable and user-friendly digital products that help businesses grow and succeed.</p>
+          <div className="actions">
+            <a className="btn primary" href="#services">Explore Services <b>→</b></a>
+            <a className="btn ghost" href="#projects">View Our Work <b>▷</b></a>
+          </div>
+          <div className="stats">
+            <div><strong>10+</strong><small>Projects Completed</small></div>
+            <div><strong>5+</strong><small>Happy Clients</small></div>
+            <div><strong>2+</strong><small>Years Experience</small></div>
+          </div>
+        </div>
+        <div className="hero-art">
+          <img src="/images/hero-devices.svg" alt="BugLeaf software shown on laptop and mobile" />
+        </div>
+      </section>
+
+      <section className="about card" id="about">
+        <div className="about-logo"><img src="/images/bugleaf-logo.png" alt="" /></div>
+        <div className="about-main"><label>WHO WE ARE</label><h2>We turn ideas into <span>powerful digital products.</span></h2><p>At BugLeaf Software, we combine creativity, technology and strategy to deliver solutions that drive real business results. Our goal is simple — build products that people love.</p><a href="#contact">Learn More About Us →</a></div>
+        <div className="about-points">
+          <div><b>✦</b><h3>Modern Solutions</h3><p>Clean, scalable and high-performance applications.</p></div>
+          <div><b>♧</b><h3>Client Focused</h3><p>We work closely with clients to understand their needs.</p></div>
+          <div><b>✓</b><h3>Reliable Support</h3><p>Ongoing support and maintenance after launch.</p></div>
+        </div>
+      </section>
+
+      <section className="section" id="services">
+        <div className="heading"><label>OUR SERVICES</label><h2>What We Do</h2><p>Everything you need to turn an idea into a polished digital product.</p></div>
+        <div className="service-grid">
+          {services.map(([n,t,d]) => <article className="service" key={n}><small>{n}</small><div className="icon">✦</div><h3>{t}</h3><p>{d}</p><span>→</span></article>)}
+        </div>
+      </section>
+
+      <section className="section projects" id="projects">
+        <div className="heading"><label>FEATURED PROJECTS</label><h2>Some Of Our Work</h2></div>
+        <div className="project-grid">
+          {projects.map(([title,desc,img]) => <article className="project" key={title}><img src={img} alt={title} /><div><h3>{title}</h3><p>{desc}</p><span>↗</span></div></article>)}
+        </div>
+        <div className="center"><a className="btn ghost" href="#contact">View All Projects →</a></div>
+      </section>
+
+      <section className="process card" id="process">
+        <div className="heading"><label>OUR PROCESS</label><h2>How We Work</h2></div>
+        <div className="steps">
+          {[
+            ["01","Discover","We understand your idea, goals and requirements."],
+            ["02","Plan","We analyze and create a strategy and roadmap."],
+            ["03","Design","We design wireframes and beautiful user interfaces."],
+            ["04","Develop","We build your product with clean and efficient code."],
+            ["05","Deliver","We test, deploy and provide ongoing support."]
+          ].map(([n,t,d]) => <div className="step" key={n}><b>{n}</b><div className="step-icon">✦</div><h3>{t}</h3><p>{d}</p></div>)}
+        </div>
+      </section>
+
+      <section className="contact" id="contact">
+        <img src="/images/bugleaf-logo.png" alt="" />
+        <div><label>READY TO START?</label><h2>Let&apos;s build something <span>amazing.</span></h2><p>Have an idea? We&apos;re just a message away.</p></div>
+        <a className="btn primary" href="mailto:hello@bugleaf.com">Contact Us →</a>
+      </section>
+
+      <footer>
+        <div className="footer-brand"><img src="/images/bugleaf-logo.png" alt="" /><div><strong>BugLeaf Software</strong><p>Building innovative software solutions.</p></div></div>
+        <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#projects">Projects</a></div>
+        <div><h4>Services</h4><a href="#services">Web Development</a><a href="#services">Mobile Development</a><a href="#services">UI/UX Design</a><a href="#services">Cloud Solutions</a></div>
+        <div><h4>Contact</h4><a href="mailto:hello@bugleaf.com">hello@bugleaf.com</a><span>+880 1234 567890</span><span>Dhaka, Bangladesh</span></div>
+      </footer>
+      <div className="copyright">© 2026 BugLeaf Software. All rights reserved.</div>
+    </main>
   );
 }
