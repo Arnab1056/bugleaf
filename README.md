@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BugLeaf Software — GitHub Pages Ready
 
 This folder is ready to upload to a GitHub repository named **bugleaf**.
@@ -82,3 +83,7 @@ If you rename the repository, change `basePath` in `next.config.ts` to the new r
 - Footer
 - CSS animations
 - GitHub Pages deployment workflow
+=======
+# bugleaf
+page of softwere development company
+>>>>>>> 341e06d67b6ca580ffec5177ab0c68ddb7aace37
