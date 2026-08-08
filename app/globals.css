@@ -80,9 +80,17 @@ html[data-theme="dark"] .nav {
 .developers { max-width: 1170px; margin: 40px auto; padding: 40px 24px; }
 .dev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
 .dev-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display:flex; gap:16px; align-items:flex-start; box-shadow: var(--shadow); }
-.dev-card .avatar { width:64px; height:64px; border-radius:12px; display:grid; place-items:center; font-weight:800; color:#071006; background: linear-gradient(135deg,var(--green) 0%, var(--green2) 100%); font-size:18px; }
+.dev-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display:flex; gap:16px; align-items:flex-start; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; cursor: pointer; }
+.dev-card .avatar { width:64px; height:64px; border-radius:12px; display:grid; place-items:center; font-weight:800; color:#071006; background: linear-gradient(135deg,var(--green) 0%, var(--green2) 100%); font-size:18px; transition: transform .25s ease; }
+.dev-card .avatar-img { width:64px; height:64px; object-fit:cover; border-radius:12px; display:block; }
 .dev-card .dev-info h3{margin:0 0 6px 0}
 .dev-card .dev-info p{margin:8px 0 0 0;color:var(--muted);font-size:13px}
+
+/* Collapsible bio */
+.dev-card .dev-info .dev-bio { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .32s ease, opacity .28s ease; }
+.dev-card.expanded { transform: scale(1.02); box-shadow: 0 18px 50px rgba(0,0,0,0.12); }
+.dev-card.expanded .avatar { transform: rotate(-6deg) scale(1.04); }
+.dev-card.expanded .dev-info .dev-bio { max-height: 200px; opacity: 1; margin-top: 8px; }
 
 @media(max-width:950px){
   .dev-grid{grid-template-columns:repeat(2,1fr)}
@@ -237,6 +245,18 @@ label {
 .primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(118, 185, 0, .2)
+}
+
+/* WhatsApp button style */
+.btn.whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.12);
+}
+.btn.whatsapp:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(37,211,102,0.18);
 }
 
 .ghost {

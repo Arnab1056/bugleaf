@@ -18,11 +18,24 @@ const projects = [
 ];
 
 export default function Home() {
-  const [dark, setDark] = useState(true);
+  // start with false to keep server/client markup consistent; read real preference on mount
+  const [dark, setDark] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = dark ? "dark" : "light";
-  }, [dark]);
+    setMounted(true);
+    try {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? saved === 'dark' : prefersDark;
+      setDark(isDark);
+      document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+    } catch (e) {
+      // ignore
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    }
+  }, []);
 
   return (
     <main>
@@ -32,7 +45,7 @@ export default function Home() {
           <span>BugLeaf <b>Software</b></span>
         </a>
         <div className="links">
-          <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="/developers">Developers</a><a href="#process">Process</a><a href="#contact">Contact</a>
+          <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#developers">Our Team</a>  <a href="#contact">Contact</a>
         </div>
         <div className="nav-actions">
           <button className="theme-toggle" onClick={() => setDark(!dark)} aria-label="Toggle theme">
@@ -71,7 +84,7 @@ export default function Home() {
           <div><b>✓</b><h3>Reliable Support</h3><p>Ongoing support and maintenance after launch.</p></div>
         </div>
       </section>
-        
+
 
       <section className="section" id="services">
         <div className="heading"><label>OUR SERVICES</label><h2>What We Do</h2><p>Everything you need to turn an idea into a polished digital product.</p></div>
@@ -87,7 +100,7 @@ export default function Home() {
         </div>
         <div className="center"><a className="btn ghost" href="#contact">View All Projects →</a></div>
       </section>
-      
+
 
       <section className="process card" id="process">
         <div className="heading"><label>OUR PROCESS</label><h2>How We Work</h2></div>
@@ -101,26 +114,43 @@ export default function Home() {
           ].map(([n, t, d]) => <div className="step" key={n}><b>{n}</b><div className="step-icon">✦</div><h3>{t}</h3><p>{d}</p></div>)}
         </div>
       </section>
-      
+
       <section className="section developers" id="developers">
         <div className="heading">
-          <label><h2>OUR TEAM</h2></label>
-          
+          <label>OUR TEAM</label>
+          <h2>Developers</h2>
           <p>Meet the people who build our products.</p>
         </div>
 
         <div className="dev-grid">
           {[
-            { name: 'Arnab', role: 'UI/UX Developer', bio: 'Designing interfaces and delightful user experiences.' },
-            { name: 'Nothing', role: 'Web Developer', bio: 'Front-end engineering and component-driven UIs.' },
-            { name: 'Sudipto', role: 'Mobile App Developer', bio: 'iOS and Android applications and integrations.' }
+            { name: 'Arnab', role: 'UI/UX Developer', bio: 'Designing interfaces and delightful user experiences.', photo: '/images/developers/arnab.jpg' },
+            { name: 'Nadia', role: 'Web Developer', bio: 'Front-end engineering and component-driven UIs.', photo: '/images/developers/nadia.jpg' },
+            { name: 'Sudipto', role: 'Mobile App Developer', bio: 'iOS and Android applications and integrations.', photo: '/images/developers/sudipto.jpg' }
           ].map((d) => (
-            <article className="dev-card" key={d.name}>
-              <div className="avatar" aria-hidden>{d.name.split(' ').map((p) => p[0]).slice(0,2).join('')}</div>
+            <article
+              className={`dev-card ${expanded === d.name ? 'expanded' : ''}`}
+              key={d.name}
+              tabIndex={0}
+              role="button"
+              aria-expanded={expanded === d.name}
+              onClick={() => setExpanded(expanded === d.name ? null : d.name)}
+              onKeyDown={(e: any) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setExpanded(expanded === d.name ? null : d.name);
+                }
+              }}
+            >
+              {d.photo ? (
+                <img src={d.photo} alt={`${d.name} photo`} className="avatar avatar-img" />
+              ) : (
+                <div className="avatar" aria-hidden>{d.name.split(' ').filter(Boolean).map((p) => p[0]).slice(0, 2).join('')}</div>
+              )}
               <div className="dev-info">
                 <h3>{d.name}</h3>
                 <small className="muted">{d.role}</small>
-                <p>{d.bio}</p>
+                <p className="dev-bio">{d.bio}</p>
               </div>
             </article>
           ))}
@@ -131,9 +161,10 @@ export default function Home() {
         <img src="images/bugleaf-logo.svg" alt="" />
         <div><label>READY TO START?</label><h2>Let&apos;s build something <span>amazing.</span></h2><p>Have an idea? We&apos;re just a message away.</p></div>
         <a className="btn primary" href="mailto:hello@bugleaf.com">Contact Us →</a>
+        <a className="btn whatsapp" href="https://wa.me/8801869298045?text=Hello%20BugLeaf%20Team" target="_blank" rel="noopener noreferrer"> WhatsApp Us</a>
       </section>
 
-   
+
 
       <footer>
         <div className="footer-brand"><img src="images/bugleaf-logo.svg" alt="" /><div><strong>BugLeaf Software</strong><p>Building innovative software solutions.</p></div></div>
