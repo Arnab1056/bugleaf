@@ -20,6 +20,7 @@ const projects = [
 export default function Home() {
   // start with false to keep server/client markup consistent; read real preference on mount
   const [dark, setDark] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -37,9 +38,31 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let lastY = window.scrollY || 0;
+    const threshold = 10;
+    const onScroll = () => {
+      const y = window.scrollY || 0;
+      if (y < 40) {
+        setNavHidden(false);
+        lastY = y;
+        return;
+      }
+      if (y > lastY + threshold) {
+        setNavHidden(true);
+      } else if (y < lastY - threshold) {
+        setNavHidden(false);
+      }
+      lastY = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <main>
-      <nav className="nav">
+      <nav className={`nav ${navHidden ? 'hidden' : ''}`}>
         <a href="#home" className="brand">
           <img src="images/bugleaf-logo.svg" alt="BugLeaf Software" />
           <span>BugLeaf <b>Software</b></span>
