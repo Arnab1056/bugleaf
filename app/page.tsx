@@ -149,9 +149,9 @@ export default function Home() {
 
         <div className="dev-grid">
           {[
-            { name: 'Arnab', role: 'UI/UX Developer', bio: 'Designing interfaces and delightful user experiences.', photo: '/images/developers/arnab.jpg' },
-            { name: 'Nadia', role: 'Web Developer', bio: 'Front-end engineering and component-driven UIs.', photo: '/images/developers/nadia.jpg' },
-            { name: 'Sudipto', role: 'Mobile App Developer', bio: 'iOS and Android applications and integrations.', photo: '/images/developers/sudipto.jpg' }
+            { name: 'Arnab', role: 'UI/UX Developer', bio: 'Designing interfaces and delightful user experiences.', photo: 'images/developers/arnab.jpg' },
+            { name: 'Nadia', role: 'Web Developer', bio: 'Front-end engineering and component-driven UIs.', photo: 'images/developers/nadia.jpg' },
+            { name: 'Sudipto', role: 'Mobile App Developer', bio: 'iOS and Android applications and integrations.', photo: 'images/developers/sudipto.jpg' }
           ].map((d) => (
             <article
               className={`dev-card ${expanded === d.name ? 'expanded' : ''}`}
