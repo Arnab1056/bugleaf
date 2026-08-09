@@ -45,7 +45,7 @@ export default function Home() {
           <span>BugLeaf <b>Software</b></span>
         </a>
         <div className="links">
-          <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#developers">Our Team</a>  <a href="#contact">Contact</a>
+          <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#process">Process</a><a href="#projects">Projects</a><a href="#developers">Our Team</a>  <a href="#contact">Contact</a>
         </div>
         <div className="nav-actions">
           <button className="theme-toggle" onClick={() => setDark(!dark)} aria-label="Toggle theme">
@@ -93,15 +93,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section projects" id="projects">
-        <div className="heading"><label>FEATURED PROJECTS</label><h2>Some Of Our Work</h2></div>
-        <div className="project-grid">
-          {projects.map(([title, desc, img]) => <article className="project" key={title}><img src={img} alt={title} /><div><h3>{title}</h3><p>{desc}</p><span>↗</span></div></article>)}
-        </div>
-        <div className="center"><a className="btn ghost" href="#contact">View All Projects →</a></div>
-      </section>
-
-
       <section className="process card" id="process">
         <div className="heading"><label>OUR PROCESS</label><h2>How We Work</h2></div>
         <div className="steps">
@@ -114,6 +105,17 @@ export default function Home() {
           ].map(([n, t, d]) => <div className="step" key={n}><b>{n}</b><div className="step-icon">✦</div><h3>{t}</h3><p>{d}</p></div>)}
         </div>
       </section>
+
+      <section className="section projects" id="projects">
+        <div className="heading"><label>FEATURED PROJECTS</label><h2>Some Of Our Work</h2></div>
+        <div className="project-grid">
+          {projects.map(([title, desc, img]) => <article className="project" key={title}><img src={img} alt={title} /><div><h3>{title}</h3><p>{desc}</p><span>↗</span></div></article>)}
+        </div>
+        <div className="center"><a className="btn ghost" href="#contact">View All Projects →</a></div>
+      </section>
+
+
+      
 
       <section className="section developers" id="developers">
         <div className="heading">
